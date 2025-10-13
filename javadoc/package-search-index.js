@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.pos.sdk.printer"},{"l":"com.pos.sdk.printer.models"}];updateSearchResults();

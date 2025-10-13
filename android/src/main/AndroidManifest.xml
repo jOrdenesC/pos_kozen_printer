@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permisos necesarios para la impresora -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>
+

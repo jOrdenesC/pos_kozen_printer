@@ -1,0 +1,29 @@
+name: pos_kozen_printer_example
+description: Aplicación de ejemplo para el plugin pos_kozen_printer
+publish_to: 'none'
+version: 0.0.1
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  pos_kozen_printer:
+    path: ../
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/flutter.png
+
