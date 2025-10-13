@@ -245,10 +245,8 @@ Check the [example/](example/) folder for a complete application demonstrating a
 
 ## Compatibility
 
-This plugin works with:
+This plugin tested in:
 - TUU POS PRO2 devices
-- Haulmer POS PRO2 devices
-- Any device using KOZEN thermal printers
 
 ## License
 
