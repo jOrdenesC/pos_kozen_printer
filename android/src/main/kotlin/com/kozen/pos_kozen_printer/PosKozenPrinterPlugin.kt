@@ -190,26 +190,29 @@ class PosKozenPrinterPlugin : FlutterPlugin, MethodCallHandler {
         }
     }
 
-    private fun beginPrint(result: Result) {
-        try {
-            val listener = object : POIPrinterManager.IPrinterListener {
-                override fun onStart() {
-                    channel.invokeMethod("onPrintStart", null)
-                }
+           private fun beginPrint(result: Result) {
+               try {
+                   // Eliminar cualquier avance predefinido antes de imprimir
+                   printerManager?.lineWrap(0)
+                   
+                   val listener = object : POIPrinterManager.IPrinterListener {
+                       override fun onStart() {
+                           channel.invokeMethod("onPrintStart", null)
+                       }
 
-                override fun onFinish() {
-                    channel.invokeMethod("onPrintFinish", null)
-                }
+                       override fun onFinish() {
+                           channel.invokeMethod("onPrintFinish", null)
+                       }
 
-                override fun onError(errorCode: Int, msg: String?) {
-                    val args = mapOf(
-                        "errorCode" to errorCode,
-                        "message" to msg
-                    )
-                    channel.invokeMethod("onPrintError", args)
-                }
-            }
-            printerManager?.beginPrint(listener)
+                       override fun onError(errorCode: Int, msg: String?) {
+                           val args = mapOf(
+                               "errorCode" to errorCode,
+                               "message" to msg
+                           )
+                           channel.invokeMethod("onPrintError", args)
+                       }
+                   }
+                   printerManager?.beginPrint(listener)
             
             Log.d(TAG, "Impresión iniciada")
             result.success(null)

@@ -1,35 +1,34 @@
-# Ejemplo de pos_kozen_printer
+# pos_kozen_printer Example
 
-Esta es una aplicación de ejemplo que demuestra cómo usar el plugin `pos_kozen_printer`.
+This is a sample application that demonstrates how to use the `pos_kozen_printer` plugin.
 
-## Características demostradas
+## Features demonstrated
 
-- ✅ Conexión y desconexión de la impresora
-- ✅ Impresión de texto simple
-- ✅ Impresión de recibos completos con formato
-- ✅ Uso de columnas de texto
-- ✅ Verificación de estado de la impresora
-- ✅ Manejo de errores
+- ✅ Printer connection and disconnection
+- ✅ Print sample receipt with logo
+- ✅ Receipt with header, items in columns, and total
+- ✅ Image printing (PNG)
+- ✅ Printer status verification
+- ✅ Error handling
 
-## Cómo ejecutar
+## How to run
 
-1. Asegúrate de tener un dispositivo POS PRO2 de KOZEN o un emulador configurado
-2. Ejecuta:
+1. Make sure you have a TUU/Haulmer POS PRO2 device
+2. Run:
    ```bash
    flutter run
    ```
 
-## Uso básico
+## Basic usage
 
-La aplicación muestra una interfaz simple con:
+The app shows a simple interface with:
 
-1. **Panel de estado**: Muestra si la impresora está conectada
-2. **Imprimir texto simple**: Permite escribir un mensaje personalizado e imprimirlo
-3. **Imprimir recibo de ejemplo**: Imprime un recibo completo formateado
+1. **Status panel**: Shows if the printer is connected
+2. **Print sample receipt**: Prints a complete formatted receipt with logo
 
-## Notas importantes
+## Important notes
 
-- La impresora debe estar conectada antes de imprimir
-- No se soporta impresión con pantalla bloqueada
-- La impresora puede sobrecalentarse con uso continuo
+- The printer must be connected before printing
+- Printing not supported with screen locked
+- The printer may overheat with continuous use
 

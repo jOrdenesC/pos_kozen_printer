@@ -1,6 +1,6 @@
 name: pos_kozen_printer
 description: Flutter plugin for KOZEN printers on TUU/Haulmer POS PRO2 devices. Easily print text and images on thermal printers.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/jOrdenesC/pos_kozen_printer
 repository: https://github.com/jOrdenesC/pos_kozen_printer
 issue_tracker: https://github.com/jOrdenesC/pos_kozen_printer/issues

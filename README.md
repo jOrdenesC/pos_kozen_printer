@@ -51,27 +51,27 @@ import 'package:pos_kozen_printer/pos_kozen_printer.dart';
 ```dart
 final printer = PosKozenPrinter();
 
-// 1. Abrir conexión con la impresora
+// 1. Open printer connection
 await printer.open();
 
-// 2. Agregar contenido
+// 2. Add content
 await printer.addTextLine(
   TextPrintLine.bold(
-    '¡Hola Mundo!',
+    'Hello World!',
     alignment: PrintAlignment.center,
     fontSize: 28,
   ),
 );
 await printer.addBlankLines(3);
 
-// 3. Imprimir con listener
+// 3. Print with listener
 await printer.beginPrint(
   SimplePrinterListener(
-    onStart: () => print('Impresión iniciada'),
+    onStart: () => print('Printing started'),
     onFinish: () async {
       await printer.cleanCache();
       await printer.close();
-      print('Impresión completa');
+      print('Print complete');
     },
     onError: (error, message) async {
       await printer.cleanCache();
@@ -88,22 +88,22 @@ await printer.beginPrint(
 final printer = PosKozenPrinter();
 await printer.open();
 
-// Encabezado
+// Header
 await printer.addTextLine(
-  TextPrintLine.bold('MI TIENDA', alignment: PrintAlignment.center, fontSize: 32),
+  TextPrintLine.bold('MY STORE', alignment: PrintAlignment.center, fontSize: 32),
 );
 await printer.addTextLine(
-  TextPrintLine.simple('Dirección de la tienda', alignment: PrintAlignment.center),
+  TextPrintLine.simple('123 Main Street', alignment: PrintAlignment.center),
 );
 await printer.addBlankLines(2);
 
-// Productos en columnas
+// Items in columns
 await printer.addTextColumns([
-  TextPrintLine.simple('Producto 1', alignment: PrintAlignment.left),
+  TextPrintLine.simple('Product 1', alignment: PrintAlignment.left),
   TextPrintLine.simple('\$10.00', alignment: PrintAlignment.right),
 ]);
 await printer.addTextColumns([
-  TextPrintLine.simple('Producto 2', alignment: PrintAlignment.left),
+  TextPrintLine.simple('Product 2', alignment: PrintAlignment.left),
   TextPrintLine.simple('\$25.50', alignment: PrintAlignment.right),
 ]);
 
@@ -117,7 +117,7 @@ await printer.addTextColumns([
 
 await printer.addBlankLines(5);
 
-// Imprimir
+// Print
 await printer.beginPrint(
   SimplePrinterListener(
     onFinish: () async {
@@ -141,11 +141,11 @@ import 'package:flutter/services.dart';
 final printer = PosKozenPrinter();
 await printer.open();
 
-// Cargar imagen desde assets
+// Load image from assets
 final ByteData data = await rootBundle.load('assets/logo.png');
 final Uint8List bytes = data.buffer.asUint8List();
 
-// Agregar imagen centrada
+// Add centered image
 await printer.addBitmapLine(
   BitmapPrintLine(
     imageBytes: bytes,
@@ -176,9 +176,9 @@ await printer.beginPrint(/* ... */);
 ### TextPrintLine
 
 ```dart
-// Constructor completo
+// Full constructor
 TextPrintLine(
-  text: 'Hola',
+  text: 'Hello',
   alignment: PrintAlignment.left,
   fontSize: 24.0,
   isBold: false,
@@ -192,9 +192,9 @@ TextPrintLine(
   paddingRight: 0,
 )
 
-// Constructores de conveniencia
-TextPrintLine.simple('Texto simple')
-TextPrintLine.bold('Texto en negrita', fontSize: 28)
+// Convenience constructors
+TextPrintLine.simple('Simple text')
+TextPrintLine.bold('Bold text', fontSize: 28)
 ```
 
 ### BitmapPrintLine
@@ -211,19 +211,19 @@ BitmapPrintLine(
 ### PrintAlignment
 
 ```dart
-PrintAlignment.left    // Izquierda
-PrintAlignment.center  // Centro
-PrintAlignment.right   // Derecha
+PrintAlignment.left    // Left
+PrintAlignment.center  // Center
+PrintAlignment.right   // Right
 ```
 
 ### PrinterError
 
 ```dart
-PrinterError.init       // Error al inicializar
-PrinterError.print      // Error durante impresión
-PrinterError.overheat   // Sobrecalentamiento
-PrinterError.noPaper    // Sin papel
-PrinterError.other      // Error no especificado
+PrinterError.init       // Initialization error
+PrinterError.print      // Print error
+PrinterError.overheat   // Overheating
+PrinterError.noPaper    // Out of paper
+PrinterError.other      // Unspecified error
 ```
 
 ## Important notes
@@ -238,17 +238,9 @@ PrinterError.other      // Error no especificado
 
 Check the [example/](example/) folder for a complete application demonstrating all plugin features.
 
-## Additional documentation
-
-- [Official KOZEN Documentation](https://developers.tuu.cl/docs/librer%C3%ADa-de-impresi%C3%B3n-dispositivos-kozen)
-- [API Reference](https://pub.dev/documentation/pos_kozen_printer/latest/)
-
 ## Compatibility
 
-This plugin works with:
-- TUU POS PRO2 devices
-- Haulmer POS PRO2 devices
-- Any device using KOZEN thermal printers
+Tested in TUU POS PRO2
 
 ## License
 
