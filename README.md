@@ -240,7 +240,8 @@ Check the [example/](example/) folder for a complete application demonstrating a
 
 ## Compatibility
 
-Tested in TUU POS PRO2
+This plugin tested in:
+- TUU POS PRO2 devices
 
 ## License
 
